@@ -5,15 +5,15 @@ var portGitea = 3000;//port de votre gitea
 var weblateHost = 'http://' + hostIP[ipindex] + '/api';
 var giteaHost = 'http://' + hostIP[ipindex] + ':' + portGitea;
 //repertoire ou ce situe les repository local ou vous crée les depo a synchrnoisé avec gitea
-var localWeblatePath = "C:\\home\\logiciels\\AtlasInsurancePlace\\weblate\\locales";//a modifier
+var localWeblatePath = "your ocal path of repository weblate";//a modifier
 //path de votre repertoire ssh
-var pathSSH = "C:\\Users\\mourad.benfradj\\.ssh";//a modifier
+var pathSSH = "your path ssh\\.ssh";//a modifier
 
-var giteaToken = '312b0101e8b029cfa2224de6cd6f22a9549c9d01';
-var weblateToken = 'gSgpkGSyE3usc30xBbQTFPTLS3v20naOvsgjRJsp';
-//var weblateToken = 'px5G9HTOzsUc4D2fc99iqKG19D89ar1xCEjhkB3C';
+var giteaToken = '';
+var weblateToken = '';
+//var weblateToken = '';
 
-var sshDuRepositoryGitea = 'mourad.benfradj@' + hostIP[0] + ':mourad';//a modifier
+var sshDuRepositoryGitea = 'logingitea@' + hostIP[0] + ':passwordgitea';//a modifier
 
 var header = '-H  "accept: application/json" -H  "Authorization: token ' + giteaToken + '" -H  "Content-Type: application/json" ';//ne pas modifier
 var language_regex = "^(en|ar|es|de|fr)$";//peux etre modifie
