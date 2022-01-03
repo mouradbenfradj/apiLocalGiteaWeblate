@@ -5,22 +5,24 @@ var portGitea = 3000;//port de votre gitea
 var weblateHost = 'http://' + hostIP[ipindex] + '/api';
 var giteaHost = 'http://' + hostIP[ipindex] + ':' + portGitea;
 //repertoire ou ce situe les repository local ou vous crée les depo a synchrnoisé avec gitea
-var localWeblatePath = "your ocal path of repository weblate";//a modifier
+var localWeblatePath = "C:\\home\\logiciels\\AtlasInsurancePlace\\weblate\\locales";//a modifier
+var localAdocBridgePath = "C:\\home\\logiciels\\AtlasInsurancePlace\\git\\output\\adoc-bridge\\bridge_ETL_mourad\\adocETL_default";//a modifier
 //path de votre repertoire ssh
-var pathSSH = "your path ssh\\.ssh";//a modifier
+var pathSSH = "C:\\Users\\mourad.benfradj\\.ssh";//a modifier
 
-var giteaToken = '';
-var weblateToken = '';
-//var weblateToken = '';
+var giteaToken = '312b0101e8b029cfa2224de6cd6f22a9549c9d01';
+var weblateToken = 'gSgpkGSyE3usc30xBbQTFPTLS3v20naOvsgjRJsp';
+//var weblateToken = 'px5G9HTOzsUc4D2fc99iqKG19D89ar1xCEjhkB3C';
 
-var sshDuRepositoryGitea = 'logingitea@' + hostIP[0] + ':passwordgitea';//a modifier
+var sshDuRepositoryGitea = 'mourad.benfradj@' + hostIP[0] + ':mourad';//a modifier
 
 var header = '-H  "accept: application/json" -H  "Authorization: token ' + giteaToken + '" -H  "Content-Type: application/json" ';//ne pas modifier
 var language_regex = "^(en|ar|es|de|fr)$";//peux etre modifie
 var expression_Rationnelle = [
-    "locales/(?P^<language^>[^^/]*)/(?P^<component^>(?!__TEMPLATE__)([^^/])*)\\\\.json",//ce qu'ont utilise
+    "locales/(?P^<language^>[^^/]*)/(?P^<component^>([^^/])*)\\\\.json",//ce qu'ont utilise
+    "locales/(?P^<language^>[^^/]*)/(?P^<component^>(?!__TEMPLATE__)([^^/])*)\\\\.json",
     "(?P<language>[^/.]*)/(?P<component>[^/]*)\\.po",
-    "locale/(?P<language>[^/.]*)/LC_MESSAGES/(?P<component>[^/]*)\\.po",
+    "locales/(?P^<language^>[^^/.]*)/(?P^<component^>[^^/]*)\\\\.json",
     "src/locale/(?P<component>[^/]*)\\.(?P<language>[^/.]*)\\.po",
     "locale/(?P<language>[^/.]*)/(?P<component>[^/]*)/(?P=language)\\.po",
     "res/values-(?P<language>[^/.]*)/strings-(?P<component>[^/]*)\\.xml"

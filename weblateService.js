@@ -48,12 +48,15 @@ var create_weblate_greffon = function (repositoryname, lngs) {
     var configWeblate = JSON.parse(lngs);
     var curlString;
     var culrDiscoveryArray = _.map(configWeblate.lng, function (lng) {
+
+      
+            
         curlString = 'curl -X POST -H "Content-Type: application/json" ' +
             '-H "Authorization: Token ' + config.weblateToken + '" ' +
             '-k -d "{' +
             '\\"name\\":\\"weblate.discovery.discovery\\",' +
             '\\"configuration\\":{' +
-            '\\"match\\":\\"' + config.expression_Rationnelle[0] + '\\",' +
+            '\\"match\\":\\"' + config.expression_Rationnelle[3] + '\\",' +
             '\\"file_format\\":\\"i18next\\",' +
             '\\"name_template\\":\\"{{ component }}_' + lng + '\\",' +
             '\\"base_file_template\\":\\"locales/' + lng + '/{{component}}.json\\",' +
@@ -65,7 +68,7 @@ var create_weblate_greffon = function (repositoryname, lngs) {
             '\\"preview\\":true},' +
             '\\"url\\":\\"\\"' +
             '}" ' +
-            config.weblateHost + '/components/' + repositoryname.toLowerCase() + '/__template__' + lng.toLowerCase() + '/addons/';
+            config.weblateHost + '/components/' + repositoryname.toLowerCase() + '/__template__' + lng.toLowerCase() + '/addons/'; 
 
         return curlString;
     });

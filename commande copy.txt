@@ -1,0 +1,25 @@
+grunt --repositoryname=default_repository shell:localInit
+
+grunt --repositoryname=default_repository --lngs=[\"en\",\"fr\"] shell:create_local_lng_folder
+
+grunt --repositoryname=default_repository --lngs=[\"en\",\"fr\"] shell:create_local_lng_file
+
+grunt --repositoryname=default_repository shell:create_gitea_repository
+
+grunt --userrepository=mourad --repositoryname=default_repository shell:add_gitea_key_repository
+
+grunt --userrepository=mourad --repositoryname=default_repository --hooks="[{\"hookUrl\":\"http://172.16.10.1:8093/v1/i18n/import\",\"http_method\":\"post\",\"content_type\":\"json\"},{\"hookUrl\":\"http://aip.adoc/hooks/gitea/\",\"http_method\":\"post\",\"content_type\":\"form\"},{\"hookUrl\":\"http://127.0.0.1/hooks/gitea/\",\"http_method\":\"post\",\"content_type\":\"form\"}]" shell:add_gitea_hook_repository
+
+grunt --repositoryname=default_repository --lngs=[\"en\",\"fr\"] shell:init_local_repository_git
+
+grunt --repositoryname=default_repository --webSiteProject=https://aip.dev:2020 shell:create_weblate_repository
+
+grunt --userrepository=mourad --repositoryname=default_repository --weblateconfig="{\"lng\":[\"fr\",\"en\"],\"repo\":\"mourad.benfradj@172.16.10.1:mourad/default_repository.git\"}" shell:create_weblate_component
+
+grunt --repositoryname=default_repository --weblateconfig="{\"lng\":[\"fr\",\"en\"],\"repo\":\"mourad.benfradj@172.16.10.1:mourad/default_repository.git\"}" shell:create_weblate_greffon
+
+grunt --repositoryname=default_repository --lng=fr shell:clone_repository_git_to_local
+
+grunt --repositoryname=default_repository --lng=fr shell:demande_rajout_local_repository_git
+
+grunt --repositoryname=default_repository --lng=fr shell:add_local_repository_git
